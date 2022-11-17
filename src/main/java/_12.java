@@ -2,7 +2,7 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 public class _12 {
-    private static long delay = 4000l;
+    private static long delay = 10000l;
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         System.out.println(asdf());

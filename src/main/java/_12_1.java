@@ -1,7 +1,7 @@
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
-public class _9 {
+public class _12_1 {
     private static long delay = 10000l;
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
@@ -13,26 +13,26 @@ public class _9 {
 
     public static String asdf(){
         return Mono.zip(
-                        Mono.fromCallable(() -> _9.getString1())
-                                .subscribeOn(Schedulers.elastic()),
-                        Mono.fromCallable(() -> _9.getString2())
-                                .subscribeOn(Schedulers.elastic()),
-                        Mono.fromCallable(() -> _9.getString3())
+                        Mono.fromCallable(() -> _12_1.getString1())
+                                .subscribeOn(Schedulers.parallel()),
+                        Mono.fromCallable(() -> _12_1.getString2())
+                                .subscribeOn(Schedulers.parallel()),
+                        Mono.fromCallable(() -> _12_1.getString3())
                         .onErrorResume(e->Mono.error( new RuntimeException(e.getCause()+"_5.getString3()")))
-                        .subscribeOn(Schedulers.elastic())
+                        .subscribeOn(Schedulers.parallel())
                         .map(i->i.toUpperCase()),
-                        Mono.fromCallable(() -> _9.getString4())
-                                .subscribeOn(Schedulers.elastic()),
-                        Mono.fromCallable(() -> _9.getString1())
-                                .subscribeOn(Schedulers.elastic()),
-                        Mono.fromCallable(() -> _9.getString2())
-                                .subscribeOn(Schedulers.elastic()),
-                        Mono.fromCallable(() -> _9.getString3())
+                        Mono.fromCallable(() -> _12_1.getString4())
+                                .subscribeOn(Schedulers.parallel()),
+                        Mono.fromCallable(() -> _12_1.getString1())
+                                .subscribeOn(Schedulers.parallel()),
+                        Mono.fromCallable(() -> _12_1.getString2())
+                                .subscribeOn(Schedulers.parallel()),
+                        Mono.fromCallable(() -> _12_1.getString3())
                                 .onErrorResume(e->Mono.error( new RuntimeException(e.getCause()+"_5.getString3()")))
-                                .subscribeOn(Schedulers.elastic())
+                                .subscribeOn(Schedulers.parallel())
                                 .map(i->i.toUpperCase()),
-                        Mono.fromCallable(() -> _9.getString4())
-                                .subscribeOn(Schedulers.elastic())
+                        Mono.fromCallable(() -> _12_1.getString4())
+                                .subscribeOn(Schedulers.parallel())
                 )
 
                 .map(res->res.getT1()+" "+ res.getT4()+" "+ res.getT3()+" "+
